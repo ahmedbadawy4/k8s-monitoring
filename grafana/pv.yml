@@ -1,0 +1,18 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: grafana
+  labels:
+    app: grafana
+    type: local
+spec:
+  persistentVolumeReclaimPolicy: Recycle
+  claimRef:
+    namespace: monitoring
+    name: grafana
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/opt/k8s-volumes/grafana"
