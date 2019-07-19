@@ -5,9 +5,11 @@
 
 
 ### create local directories in all nodes 
+```
 mkdir -p /opt/k8s-volumes/prometheus-alertmanager
 mkdir -p /opt/k8s-volumes/prometheus-server
 mkdir -p /opt/k8s-volumes/grafana
+```
 
 ### deploy prometheus
 ```
