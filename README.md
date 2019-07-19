@@ -3,6 +3,12 @@
 `git clone https://github.com/helm/charts.git`
 ### create rbac/svc/pv
 
+
+### create local directories in all nodes 
+mkdir -p /opt/k8s-volumes/prometheus-alertmanager
+mkdir -p /opt/k8s-volumes/prometheus-server
+mkdir -p /opt/k8s-volumes/grafana
+
 ### deploy prometheus
 ```
 cd charts/stable/prometheus
