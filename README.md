@@ -2,8 +2,12 @@
 `using Grafana and  Prometheus`
 `git clone https://github.com/helm/charts.git`
 ### create rbac/svc/pv
-
-
+```
+helm reset --force
+kubectl apply -f role-binding.yaml
+kubectl apply -f rbac-config.yaml
+helm init --service-account tiller --wait
+```
 ### create local directories in all nodes 
 ```
 mkdir -p /opt/k8s-volumes/prometheus-alertmanager
