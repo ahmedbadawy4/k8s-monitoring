@@ -18,12 +18,14 @@ mkdir -p /opt/k8s-volumes/grafana
 helm repo update
 helm install stable/prometheus --namespace monitoring --name prometheus```
 #### edit pvc and deploy pv
+   `cd ./k8s-monitoing/`
 1- `kubectl edit pvc prometheus-alertmanager -n monitoing`
  - add `volumeName: prometheus-alertmanager`
 2- `kubectl edit pvc prometheus-server -n monitoing`
  - add `volumeName: prometheus-server`
-3- `kubectl apply -f pr`
-4-
+3- `kubectl apply -f ./prometheus/pv.yml`
+4- `kubectl apply -f ./prometheus/pv-man.yml`
+5- `kubectl apply -f ./gragana/pv.yml`
 #### edit svc to be node-port
 kubectl delete svc grafana -n monitoring
 kubectl apply -f ./grafana/service.yml -n monitoring
