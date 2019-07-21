@@ -8,7 +8,7 @@ metadata:
 spec:
   persistentVolumeReclaimPolicy: Recycle
   claimRef:
-    namespace: demo
+    namespace: monitoring
     name: prometheus-alertmanager
   capacity:
     storage: 2Gi
