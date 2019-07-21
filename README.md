@@ -1,6 +1,4 @@
 # k8s-monitoring
-`using Grafana and  Prometheus`
-`git clone https://github.com/helm/charts.git`
 ### create rbac/svc/pv
 ```
 helm reset --force
@@ -17,17 +15,24 @@ mkdir -p /opt/k8s-volumes/grafana
 
 ### deploy prometheus
 ```
-cd charts/stable/prometheus
-helm install --name=prometheus . --namespace monitoring --set rbac.create=true
-```
-
+helm repo update
+helm install stable/prometheus --namespace monitoring --name prometheus```
+#### edit pvc and deploy pv
+1- `kubectl edit pvc prometheus-alertmanager -n monitoing`
+ - add `volumeName: prometheus-alertmanager`
+2- `kubectl edit pvc prometheus-server -n monitoing`
+ - add `volumeName: prometheus-server`
+3- `kubectl apply -f pr`
+4-
 #### edit svc to be node-port
-
+kubectl delete svc grafana -n monitoring
+kubectl apply -f ./grafana/service.yml -n monitoring
 ### deploy garafana
 `cd charts/stable/grafana`
 `helm install stable/grafana --set persistence.enabled=true --set persistence.accessModes={ReadWriteOnce} --set persistence.size=8Gi -n grafana --namespace monitoring`
+
+
 - get admin password 
-```
 kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
 #### edit svc to be nodePort
