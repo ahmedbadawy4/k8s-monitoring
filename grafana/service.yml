@@ -1,19 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2019-07-14T15:02:52Z"
   labels:
     app: grafana
-    chart: grafana-3.5.11
-    heritage: Tiller
-    release: grafana
   name: grafana
   namespace: monitoring
-  resourceVersion: "20976"
-  selfLink: /api/v1/namespaces/monitoring/services/grafana
-  uid: 40fc5bfe-ceba-420d-9739-2cb26eedf384
 spec:
-  clusterIP: 10.103.48.187
   ports:
   - name: service
     nodePort: 30888
