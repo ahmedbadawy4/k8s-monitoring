@@ -39,14 +39,14 @@ helm install stable/prometheus --namespace monitoring --name prometheus
       requests:
        storage: 2Gi
     volumeMode: Filesystem
-    volumeName: prometheus-alertmanager
+    volumeName: prometheus-server
 5- kubectl apply -f ./grafana/pv.yml
 ```
 #### edit svc to be node-port
-
+```
 kubectl delete svc grafana -n monitoring
 kubectl apply -f ./grafana/service.yml -n monitoring
-
+```
 
 ### deploy garafana
 ```
