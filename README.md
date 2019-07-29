@@ -5,6 +5,7 @@ helm reset --force
 kubectl apply -f role-binding.yaml
 kubectl apply -f rbac-config.yaml
 helm init --service-account tiller --wait
+helm init --upgrade
 ```
 ### create local directories in all nodes 
 ```
