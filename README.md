@@ -44,7 +44,7 @@ helm install stable/prometheus --namespace monitoring --name prometheus
 5- kubectl apply -f ./grafana/pv.yml
 ```
 
-### deploy garafana
+### deploy garafana on NodePort
 ```
 helm install stable/grafana --set persistence.enabled=true --set persistence.accessModes={ReadWriteOnce} --set persistence.size=8Gi -n grafana --namespace monitoring
 ```
@@ -61,3 +61,11 @@ kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-pass
 #### edit svc to be nodePort
 
 check this [URL](https://youtu.be/tYIqsby5gBc)
+
+
+### deploy weave on NodePort
+```
+cd wea
+kubectl apply -f weave
+
+```
