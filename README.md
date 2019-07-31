@@ -65,7 +65,7 @@ check this [URL](https://youtu.be/tYIqsby5gBc)
 
 ### deploy weave on NodePort
 ```
-cd wea
+cd weave
 kubectl apply -f weave
 
 ```
