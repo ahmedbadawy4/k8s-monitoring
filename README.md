@@ -1,4 +1,4 @@
-# k8s-monitoring
+# Very basic Sample Guide to k8s-monitoring
 ### create rbac/svc/pv
 ```
 helm reset --force
